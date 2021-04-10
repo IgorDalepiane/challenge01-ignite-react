@@ -16,7 +16,7 @@ export function TaskList() {
 
   function handleCreateNewTask() {
     newTaskTitle && setTasks(tasks.concat({
-      id:Math.floor(Math.random()*100),
+      id:Math.random()*100,
       title:newTaskTitle,
       isComplete:false
     }))
@@ -26,7 +26,7 @@ export function TaskList() {
     setTasks(
       tasks.map(task => 
           task.id === id 
-          ? task.isComplete==false ? {...task, isComplete: true} : {...task, isComplete: false}  
+          ? {...task, isComplete: !task.isComplete} 
           : task 
     ))
   }
